@@ -23,6 +23,6 @@ RUN apt-get update && \
     echo "mysqli.default_socket=/var/run/mysqld/mysqld.sock" >> ~/.phpbrew/php/7.0/etc/php.ini && \
     phpbrew install -j $(nproc) --name=7.1 7.1 +default+mysql+calendar+ftp+exif+soap+session+opcache+imap+xmlrpc+zlib+curl+gd+intl+openssl+xml_all+gettext+iconv && \
     echo "mysqli.default_socket=/var/run/mysqld/mysqld.sock" >> ~/.phpbrew/php/7.1/etc/php.ini && \
-    RUN rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/* /usr/share/man
+    rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/* /usr/share/man
 
 ADD files /
