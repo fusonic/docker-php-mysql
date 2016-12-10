@@ -4,19 +4,6 @@ MAINTAINER Fusonic "office@fusonic.net"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-ENV PATH='/root/.phpbrew/php/7.0/bin:/root/.phpbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
-ENV PATH_WITHOUT_PHPBREW='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
-
-ENV PHPBREW_BIN='/root/.phpbrew/bin'
-ENV PHPBREW_PATH='/root/.phpbrew/php/7.1/bin'
-ENV PHPBREW_ROOT='/root/.phpbrew'
-ENV PHPBREW_HOME='/root/.phpbrew'
-ENV PHPBREW_PHP='7.1'
-ENV PHPBREW_LOOKUP_PREFIX=''
-ENV PHPBREW_VERSION_REGEX='^([[:digit:]]+\.){2}[[:digit:]]+$'
-
-ENV TRAVIS='1'
-
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y php7.0-cli php7.0-curl mysql-server git curl bzip2 \
