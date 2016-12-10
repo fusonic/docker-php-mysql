@@ -16,13 +16,19 @@ RUN apt-get update && \
     chmod +x /usr/bin/phpbrew && \
     phpbrew init && \
     phpbrew install -j $(nproc) --name=5.5 5.5 +default+mysql+calendar+ftp+exif+soap+session+opcache+imap+xmlrpc+zlib+curl+gd+intl+openssl+xml_all+gettext+iconv && \
-    echo "mysqli.default_socket=/var/run/mysqld/mysqld.sock" >> ~/.phpbrew/php/5.5/etc/php.ini && \
     phpbrew install -j $(nproc) --name=5.6 5.6 +default+mysql+calendar+ftp+exif+soap+session+opcache+imap+xmlrpc+zlib+curl+gd+intl+openssl+xml_all+gettext+iconv && \
-    echo "mysqli.default_socket=/var/run/mysqld/mysqld.sock" >> ~/.phpbrew/php/5.6/etc/php.ini && \
     phpbrew install -j $(nproc) --name=7.0 7.0 +default+mysql+calendar+ftp+exif+soap+session+opcache+imap+xmlrpc+zlib+curl+gd+intl+openssl+xml_all+gettext+iconv && \
-    echo "mysqli.default_socket=/var/run/mysqld/mysqld.sock" >> ~/.phpbrew/php/7.0/etc/php.ini && \
     phpbrew install -j $(nproc) --name=7.1 7.1 +default+mysql+calendar+ftp+exif+soap+session+opcache+imap+xmlrpc+zlib+curl+gd+intl+openssl+xml_all+gettext+iconv && \
+    phpbrew clean -a 5.5 && \
+    phpbrew clean -a 5.6 && \
+    phpbrew clean -a 7.0 && \
+    phpbrew clean -a 7.1 && \
+    echo "mysqli.default_socket=/var/run/mysqld/mysqld.sock" >> ~/.phpbrew/php/5.5/etc/php.ini && \
+    echo "mysqli.default_socket=/var/run/mysqld/mysqld.sock" >> ~/.phpbrew/php/5.6/etc/php.ini && \
+    echo "mysqli.default_socket=/var/run/mysqld/mysqld.sock" >> ~/.phpbrew/php/7.0/etc/php.ini && \
     echo "mysqli.default_socket=/var/run/mysqld/mysqld.sock" >> ~/.phpbrew/php/7.1/etc/php.ini && \
+    apt-get purge -y gcc make && \
+    apt-get autoremove -y && \
     rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/* /usr/share/man
 
 ADD files /
