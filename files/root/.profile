@@ -1,4 +1,6 @@
 source ~/.phpbrew/bashrc
+
+# Use PHP 7.1 as default version
 phpbrew use 7.1
 
 # Support for GitHub access tokens
