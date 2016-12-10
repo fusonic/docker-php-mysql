@@ -5,7 +5,7 @@ MAINTAINER Fusonic "office@fusonic.net"
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
-    apt-get install -y composer mysql-server git php7.0-cli php7.0-curl php7.0-dom php7.0-mbstring curl bzip2 \
+    apt-get install -y composer mysql-server git php7.0-cli php7.0-curl php7.0-dom php7.0-mbstring php7.0-zip curl bzip2 \
                        libxslt1.1 libmcrypt4 libcurl3 libenchant1c2a libpng16-16 libgmp10 libc-client2007e libkrb5-3 \
                        libfbclient2 firebird2.5-common libldap-2.4-2 gcc make libxml2-dev libssl-dev libbz2-dev \
                        libmcrypt-dev libreadline6-dev libxslt1-dev libcurl4-openssl-dev libenchant-dev libpng16-dev \
