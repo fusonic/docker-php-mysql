@@ -1,0 +1,20 @@
+#!/bin/bash -e
+
+# Starts MySQL server
+service mysql start
+
+# Support for GitHub access tokens
+if [ ! -z "$GITHUB_ACCESS_TOKEN" ]; then
+    composer config -g github-oauth.github.com $GITHUB_ACCESS_TOKEN
+fi;
+
+# Set link for PHP version
+PHP_EXECUTABLE=/root/.phpbrew/php/$1/bin/php
+if [ ! -f $PHP_EXECUTABLE ]; then
+    echo "PHP version $1 not found!"
+    exit 1
+fi
+if [ -f /usr/bin/php ]; then
+    unlink /usr/bin/php
+fi
+ln -s $PHP_EXECUTABLE /usr/bin/php
